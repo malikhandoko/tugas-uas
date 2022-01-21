@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Biodata Singkat</title>
+
+<script>
+function tampilkan(){
+	var nama=document.getElementById("form1").nama.value;
+	var tampilnama=document.getElementById("hasilnama");
+	var jk=document.getElementById("form1").jeniskelamin.value;
+	var tampiljk=document.getElementById("hasiljk");
+	var prodi=document.getElementById("form1").prodi.value;
+	var tampilprodi=document.getElementById("hasilprodi");
+    /*
+	var checkbox=document.getElementById("form1").hobi.value;
+	var tampilhobi=document.getElementById("hasilhobi");
+	*/
+
+	// menampilkan Output Name
+	tampilnama.innerHTML="Nama : " + nama;
+	// menampilkan Output Gender
+	if (jk=="Pria")
+	{
+		tampiljk.innerHTML="Jenis Kelamin : Pria";
+	}
+	else if (jk=="Wanita")
+	{
+		tampiljk.innerHTML="Jenis Kelamin : Wanita";
+	}
+	// menampilkan Output Prodi
+	if (prodi=="sistem informasi")
+	{
+		tampilprodi.innerHTML="Prodi : Sistem Informasi";
+	}
+	else if (prodi=="teknik informatika")
+	{
+		tampilprodi.innerHTML="Prodi : Teknik Informatika";
+	}
+
+	// menampilkan Output Hobi
+	var checkbox = document.getElementsByName("hobi");
+        var hobi = "";
+        for(var i = 0; i < checkbox.length; i++){
+            if(checkbox[i].checked){
+            hobi = hobi + checkbox[i].value +", ";
+        }
+    }
+    document.getElementById("hasilhobi").innerText ="Hobi : " + hobi.replace(/,\s*$/, "");
+}
+</script>
+</head>
+<body>
+
+<h2>Form Pendaftaran Mahasiswa</h2>
+
+<form id="form1" name="form1" onsubmit="return false">
+	<table>
+	<tr>
+		<td>
+			<label for="nama">Nama</label>
+		</td>
+		<td>:</td>
+		<td>
+			<input type="text" name="nama" id="nama">
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<label for="jeniskelamin">Jenis Kelamin</label>
+		</td>
+		<td>:</td>
+		<td>
+			<input type="radio" name="jeniskelamin" id="jeniskelamin" value="Pria">Pria
+			<input type="radio" name="jeniskelamin" id="jeniskelamin" value="Wanita">Wanita
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<label for="prodi">Prodi</label>
+		</td>
+		<td>:</td>
+		<td>
+			<select id="prodi" name="prodi">
+				<option value="sistem informasi">Sistem Informasi</option>
+				<option value="teknik informatika">Teknik Informatika</option>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<label for="hobi">Hobi</label>
+		</td>
+		<td>:</td>
+		<td>
+			<input type="checkbox" name="hobi" id="hobi" value="Coding">Coding
+			<input type="checkbox" name="hobi" id="hobi" value="Jalan-Jalan">Jalan-Jalan
+			<input type="checkbox" name="hobi" id="hobi" value="Makan">Makan
+		</td>
+	</tr>
+
+	<tr>
+		<td></td>
+		<td></td>
+		<td>
+			<input type="submit" value="Kirim" onclick="tampilkan()">
+		</td>
+	</tr>
+
+	</table>
+</form>
+
+
+<p id="hasilnama"></p> <p id="hasiljk"></p> <p id="hasilprodi"></p> <p id="hasilhobi"></p>
+
+</body>
+</html>
